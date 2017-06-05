@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+
 /**
  * This app displays an order form to order coffee.
  */
@@ -20,7 +22,11 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
+
+        double individualPrice = 2.70;
+
         incrementOrder();
+        displayPrice(individualPrice);
     }
 
     /**
@@ -32,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
         int value = charSeqToInt(text) + 1;
         String incrementedValue = Integer.toString(value);
         quantityTextView.setText(incrementedValue);
+    }
+
+    private void displayPrice(double individualPrice) {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+        int quantity = charSeqToInt(quantityTextView.getText());
+        double price = quantity * individualPrice;
+        priceTextView.setText(NumberFormat.getCurrencyInstance().format(price));
     }
 
     /**
@@ -56,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * This method simply brings the value to the power of the exponent
+     * This method simply brings a value to the power of the exponent
      */
     private int powerOf(int value, int exponential) {
         int temp = value;
