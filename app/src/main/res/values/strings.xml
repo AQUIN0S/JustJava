@@ -3,5 +3,4 @@
     <string name="firstTextView">quantity</string>
     <string name="secondTextView">0</string>
     <string name="orderButton">order</string>
-    <string name="blank"></string>
 </resources>
