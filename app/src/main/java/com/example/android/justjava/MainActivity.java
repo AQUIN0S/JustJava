@@ -38,55 +38,41 @@ public class MainActivity extends AppCompatActivity {
      * This method converts a CharSequence that represents an integer to an integer.
      */
     private int charSeqToInt(CharSequence sequence) {
-
         int convertedInt = 0;
 
         for (int i = 1; i <= sequence.length(); i++) {
-
             int position = sequence.length() - i;
 
             if (Character.getNumericValue(sequence.charAt(position)) < 0 ||
                     Character.getNumericValue(sequence.charAt(position)) > 9) {
-
                 return -1;
-
             } else {
-
                 convertedInt += Character.getNumericValue(sequence.charAt(position)) * powerOf(10, i - 1);
-
             }
 
         }
 
         return convertedInt;
-
     }
 
     /**
      * This method simply brings the value to the power of the exponent
      */
     private int powerOf(int value, int exponential) {
-
         int temp = value;
 
         if (exponential < 0) {
-
             return -1;
-
         } else if (exponential == 0) {
-
             return 1;
-
         } else {
 
             for (int i = 1; i < exponential; i++) {
-
                 temp *= value;
-
             }
 
             return temp;
-
         }
+
     }
 }
