@@ -12,66 +12,86 @@ import java.text.NumberFormat;
  */
 public class MainActivity extends AppCompatActivity {
 
+    private int quantityValue;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setQuantity();
     }
+
+
+    /**
+     * This method is called only when this app is loaded, setting the quantity variable to the
+     * one in activity_main.xml
+     */
+    private void setQuantity() {
+
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        CharSequence text = quantityTextView.getText();
+        this.quantityValue = charSeqToInt(text);
+
+    }
+
 
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
 
-        incrementOrder();
+        display();
         displayPrice();
+
     }
+
 
     public void increment(View view) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        CharSequence text = quantityTextView.getText();
-        int value = charSeqToInt(text) + 1;
-        String incrementedValue = Integer.toString(value);
-        quantityTextView.setText(incrementedValue);
+
+        this.quantityValue++;
+
+        display();
         displayPrice();
+
     }
+
 
     public void decrement(View view) {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        CharSequence text = quantityTextView.getText();
-        int value = charSeqToInt(text);
 
-        if (value <= 0) {
-            value = 0;
+        if (this.quantityValue <= 0) {
+            this.quantityValue = 0;
         } else {
-            value--;
+            this.quantityValue--;
         }
 
-        String incrementedValue = Integer.toString(value);
-        quantityTextView.setText(incrementedValue);
+        display();
         displayPrice();
+
     }
 
-    /**
-     * This method displays the given quantity value on the screen.
-     */
-    private void incrementOrder() {
+
+    private void display() {
+
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        CharSequence text = quantityTextView.getText();
-        int value = charSeqToInt(text) + 1;
-        String incrementedValue = Integer.toString(value);
-        quantityTextView.setText(incrementedValue);
-    }
+        String text = Integer.toString(this.quantityValue);
+        quantityTextView.setText(text);
 
+    }
 
 
     private void displayPrice() {
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        int quantity = charSeqToInt(quantityTextView.getText());
-        double price = quantity * 2.70;
+        double price = this.quantityValue * 2.70;
+
+        /*
+         * You can use priceTextView.setText(NumberFormat.getCurrencyInstance().format(price)) to
+         * display a pricing value with the currency symbol of the phone's language.
+         */
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(price));
+
     }
+
 
     /**
      * This method converts a CharSequence that represents an integer to an integer.
@@ -93,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
 
         return convertedInt;
     }
+
 
     /**
      * This method simply brings a value to the power of the exponent
