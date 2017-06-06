@@ -83,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
     private void display() {
 
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        String text = Integer.toString(this.quantityValue);
-        quantityTextView.setText(text);
+        String value = Integer.toString(this.quantityValue);
+        quantityTextView.setText(value);
 
     }
 
