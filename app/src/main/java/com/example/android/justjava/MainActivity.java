@@ -23,10 +23,33 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitOrder(View view) {
 
-        double individualPrice = 2.70;
-
         incrementOrder();
-        displayPrice(individualPrice);
+        displayPrice();
+    }
+
+    public void increment(View view) {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        CharSequence text = quantityTextView.getText();
+        int value = charSeqToInt(text) + 1;
+        String incrementedValue = Integer.toString(value);
+        quantityTextView.setText(incrementedValue);
+        displayPrice();
+    }
+
+    public void decrement(View view) {
+        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
+        CharSequence text = quantityTextView.getText();
+        int value = charSeqToInt(text);
+
+        if (value <= 0) {
+            value = 0;
+        } else {
+            value--;
+        }
+
+        String incrementedValue = Integer.toString(value);
+        quantityTextView.setText(incrementedValue);
+        displayPrice();
     }
 
     /**
@@ -40,11 +63,13 @@ public class MainActivity extends AppCompatActivity {
         quantityTextView.setText(incrementedValue);
     }
 
-    private void displayPrice(double individualPrice) {
+
+
+    private void displayPrice() {
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
         int quantity = charSeqToInt(quantityTextView.getText());
-        double price = quantity * individualPrice;
+        double price = quantity * 2.70;
         priceTextView.setText(NumberFormat.getCurrencyInstance().format(price));
     }
 
