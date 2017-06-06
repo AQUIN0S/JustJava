@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * This method is called when the + button is pressed.
+     */
     public void increment(View view) {
 
         this.quantityValue++;
@@ -56,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * This method is called when the - button is pressed.
+     */
     public void decrement(View view) {
 
         if (this.quantityValue <= 0) {
@@ -70,6 +76,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * This method displays quantityValue.
+     */
     private void display() {
 
         TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
@@ -79,6 +88,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * This method calculates and displays the price.
+     */
     private void displayPrice() {
 
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
