@@ -13,13 +13,15 @@ import java.text.NumberFormat;
 public class MainActivity extends AppCompatActivity {
 
     private int quantityValue;
+    private String message = "Total: " +
+            NumberFormat.getCurrencyInstance().format(this.quantityValue * 2.70);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setQuantity();
-        displayPrice();
+        setMessage();
     }
 
 
@@ -35,14 +37,29 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * This method sets the price string.
+     */
+    private void setMessage() {
+
+        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
+
+        /*
+         * You can use priceTextView.setText(NumberFormat.getCurrencyInstance().format(price)) to
+         * display a pricing value with the currency symbol of the phone's language.
+         */
+        priceTextView.setText(this.message);
+
+    }
+
 
     /**
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
 
-        display();
-        displayPrice();
+
+        displayMessage();
 
     }
 
@@ -55,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         this.quantityValue++;
 
         display();
-        displayPrice();
 
     }
 
@@ -72,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         display();
-        displayPrice();
 
     }
 
@@ -89,19 +104,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /**
-     * This method calculates and displays the price.
-     */
-    private void displayPrice() {
+
+    private void displayMessage() {
 
         TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-        double price = this.quantityValue * 2.70;
 
-        /*
-         * You can use priceTextView.setText(NumberFormat.getCurrencyInstance().format(price)) to
-         * display a pricing value with the currency symbol of the phone's language.
-         */
-        priceTextView.setText(NumberFormat.getCurrencyInstance().format(price));
+        this.message = "Total: " +
+                NumberFormat.getCurrencyInstance().format(this.quantityValue * 2.70) +
+                "\nThank You! :D";
+
+        priceTextView.setText(this.message);
 
     }
 
