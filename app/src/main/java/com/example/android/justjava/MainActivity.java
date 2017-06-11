@@ -2,6 +2,7 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import java.text.NumberFormat;
 import butterknife.ButterKnife;
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.quantity_text_view) TextView quantityTextView;
     @BindView(R.id.order_summary_text_view) TextView orderSummaryTextView;
+    @BindView(R.id.whipped_cream_check) CheckBox whippedCreamCheck;
+    @BindView(R.id.chocolate_check) CheckBox chocolateCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder() {
 
         double price = calculatePrice();
-        String message = createOrderSummary(price);
+        boolean whippedCream = whippedCreamCheck.isChecked();
+        boolean chocolate = chocolateCheck.isChecked();
+        String message = createOrderSummary(price, whippedCream, chocolate);
         displayMessage(message);
 
     }
@@ -89,9 +94,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private String createOrderSummary(double price) {
+    private String createOrderSummary(double price, boolean whippedCream, boolean chocolate) {
+
 
         String message = "Name: Daniel Schimanski";
+        message += "\nAdd whipped cream? " + whippedCream;
+        message += "\nAdd chocolate? " + chocolate;
         message += "\nQuantity: " + this.quantityValue;
         message += "\nTotal: " + NumberFormat.getCurrencyInstance().format(price);
         message += "\nThank you!";
