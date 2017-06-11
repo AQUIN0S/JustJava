@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:text="@string/quantityLabel"
+        android:text="@string/quantity_label"
         android:textAllCaps="true"
         style="@style/viewDimens" />
 
@@ -19,45 +19,45 @@
         android:gravity="center_vertical">
 
         <Button
-            android:text="@string/decrementButton"
+            android:id="@+id/decrement_button"
+            android:text="@string/decrement_button"
             style="@style/inc_dec_button_dimensions"
-            android:onClick="decrement"
             android:layout_marginLeft="4dp"
             android:layout_marginStart="4dp" />
 
         <TextView
             android:id="@+id/quantity_text_view"
-            android:text="@string/quantityTextView"
+            android:text="@string/quantity_text_view"
             android:textSize="16sp"
             android:textColor="@android:color/black"
             style="@style/viewDimens"
             android:layout_margin="4dp" />
 
         <Button
-            android:text="@string/incrementButton"
+            android:id="@+id/increment_button"
+            android:text="@string/increment_button"
             style="@style/inc_dec_button_dimensions"
-            android:onClick="increment"
             android:layout_marginRight="4dp"
             android:layout_marginEnd="4dp" />
 
     </LinearLayout>
 
     <TextView
-        android:text="@string/priceLabel"
+        android:text="@string/order_summary_label"
         android:textAllCaps="true"
         style="@style/viewDimens" />
 
     <TextView
-        android:id="@+id/price_text_view"
-        android:text="@string/priceTextView"
+        android:id="@+id/order_summary_text_view"
+        android:text="@string/order_summary_text_view"
         android:textSize="16sp"
         android:textColor="@android:color/black"
         style="@style/viewDimens"/>
 
     <Button
-        android:text="@string/orderButton"
-        style="@style/viewDimens"
-        android:onClick="submitOrder"/>
+        android:id="@+id/order_button"
+        android:text="@string/order_button"
+        style="@style/viewDimens"/>
 
 
 

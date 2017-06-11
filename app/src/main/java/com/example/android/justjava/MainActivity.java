@@ -2,53 +2,28 @@ package com.example.android.justjava;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.TextView;
-
 import java.text.NumberFormat;
+import butterknife.ButterKnife;
+import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
 
-    private int quantityValue;
-    private String message = "Total: " +
-            NumberFormat.getCurrencyInstance().format(this.quantityValue * 2.70);
+    private int quantityValue = 0;
+
+    @BindView(R.id.quantity_text_view) TextView quantityTextView;
+    @BindView(R.id.order_summary_text_view) TextView orderSummaryTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setQuantity();
-        setMessage();
-    }
-
-
-    /**
-     * This method is called only when this app is loaded, setting the quantity variable to the
-     * one in activity_main.xml
-     */
-    private void setQuantity() {
-
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        CharSequence text = quantityTextView.getText();
-        this.quantityValue = charSeqToInt(text);
-
-    }
-
-    /**
-     * This method sets the price string.
-     */
-    private void setMessage() {
-
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-
-        /*
-         * You can use priceTextView.setText(NumberFormat.getCurrencyInstance().format(price)) to
-         * display a pricing value with the currency symbol of the phone's language.
-         */
-        priceTextView.setText(this.message);
+        ButterKnife.bind(this);
 
     }
 
@@ -56,108 +31,78 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method is called when the order button is clicked.
      */
-    public void submitOrder(View view) {
 
+    @OnClick(R.id.order_button)
+    public void submitOrder() {
 
-        displayMessage();
-
-    }
-
-
-    /**
-     * This method is called when the + button is pressed.
-     */
-    public void increment(View view) {
-
-        this.quantityValue++;
-
-        display();
+        double price = calculatePrice();
+        String message = createOrderSummary(price);
+        displayMessage(message);
 
     }
 
 
     /**
-     * This method is called when the - button is pressed.
+     * Methods to increment/decrement the quantity TextView
      */
-    public void decrement(View view) {
+
+    @OnClick(R.id.increment_button)
+    public void increment() {
+
+        this.quantityValue += 1;
+        displayQuantity(this.quantityValue);
+
+    }
+
+    @OnClick(R.id.decrement_button)
+    public void decrement() {
 
         if (this.quantityValue <= 0) {
             this.quantityValue = 0;
         } else {
-            this.quantityValue--;
+            this.quantityValue -= 1;
         }
-
-        display();
+        displayQuantity(this.quantityValue);
 
     }
 
 
     /**
-     * This method displays quantityValue.
+     * Method to calculate the price based on quantity
      */
-    private void display() {
 
-        TextView quantityTextView = (TextView) findViewById(R.id.quantity_text_view);
-        String value = Integer.toString(this.quantityValue);
-        quantityTextView.setText(value);
+    private double calculatePrice() {
 
-    }
-
-
-
-    private void displayMessage() {
-
-        TextView priceTextView = (TextView) findViewById(R.id.price_text_view);
-
-        this.message = "Total: " +
-                NumberFormat.getCurrencyInstance().format(this.quantityValue * 2.70) +
-                "\nThank You! :D";
-
-        priceTextView.setText(this.message);
+        return this.quantityValue * 2.70;
 
     }
 
 
     /**
-     * This method converts a CharSequence that represents an integer to an integer.
+     * Methods to display quantity and to create and display the order summary
      */
-    private int charSeqToInt(CharSequence sequence) {
-        int convertedInt = 0;
 
-        for (int i = 1; i <= sequence.length(); i++) {
-            int position = sequence.length() - i;
+    private void displayQuantity(int quantity) {
 
-            if (Character.getNumericValue(sequence.charAt(position)) < 0 ||
-                    Character.getNumericValue(sequence.charAt(position)) > 9) {
-                return -1;
-            } else {
-                convertedInt += Character.getNumericValue(sequence.charAt(position)) * powerOf(10, i - 1);
-            }
+        String value = Integer.toString(quantity);
+        this.quantityTextView.setText(value);
 
-        }
-
-        return convertedInt;
     }
 
+    private String createOrderSummary(double price) {
 
-    /**
-     * This method simply brings a value to the power of the exponent
-     */
-    private int powerOf(int value, int exponential) {
-        int temp = value;
-
-        if (exponential < 0) {
-            return -1;
-        } else if (exponential == 0) {
-            return 1;
-        } else {
-
-            for (int i = 1; i < exponential; i++) {
-                temp *= value;
-            }
-
-            return temp;
-        }
+        String message = "Name: Daniel Schimanski";
+        message += "\nQuantity: " + this.quantityValue;
+        message += "\nTotal: " + NumberFormat.getCurrencyInstance().format(price);
+        message += "\nThank you!";
+        return message;
 
     }
+
+    private void displayMessage(String message) {
+
+        this.orderSummaryTextView.setText(message);
+
+    }
+
 }
