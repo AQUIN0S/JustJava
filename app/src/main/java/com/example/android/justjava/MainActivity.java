@@ -3,6 +3,7 @@ package com.example.android.justjava;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 import java.text.NumberFormat;
 import butterknife.ButterKnife;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.order_summary_text_view) TextView orderSummaryTextView;
     @BindView(R.id.whipped_cream_check) CheckBox whippedCreamCheck;
     @BindView(R.id.chocolate_check) CheckBox chocolateCheck;
+    @BindView(R.id.name_edit_text_view) EditText nameEditTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
         double price = calculatePrice();
         boolean whippedCream = whippedCreamCheck.isChecked();
         boolean chocolate = chocolateCheck.isChecked();
-        String message = createOrderSummary(price, whippedCream, chocolate);
+        String name = nameEditTextView.getText().toString();
+        String message = createOrderSummary(name, price, whippedCream, chocolate);
         displayMessage(message);
 
     }
@@ -94,10 +97,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private String createOrderSummary(double price, boolean whippedCream, boolean chocolate) {
+    private String createOrderSummary(String name, double price, boolean whippedCream, boolean chocolate) {
 
 
-        String message = "Name: Daniel Schimanski";
+        String message = "Name: " + name;
         message += "\nAdd whipped cream? " + whippedCream;
         message += "\nAdd chocolate? " + chocolate;
         message += "\nQuantity: " + this.quantityValue;
