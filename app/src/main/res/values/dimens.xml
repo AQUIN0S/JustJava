@@ -10,4 +10,6 @@
     <dimen name="decButtonMargin">4dp</dimen>
     <dimen name="incButtonMargin">4dp</dimen>
     <dimen name="normalText">16sp</dimen>
+    <dimen name="headerHeight">48dp</dimen>
+    <dimen name="headerText">15dp</dimen>
 </resources>

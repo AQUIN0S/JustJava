@@ -19,10 +19,7 @@
             android:inputType="textCapWords" />
 
         <TextView
-            style="@style/heading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/generalMargin"
+            style="@style/HeaderTextStyle"
             android:text="@string/toppings_label" />
 
         <LinearLayout
@@ -33,33 +30,18 @@
 
             <CheckBox
                 android:id="@+id/whipped_cream_check"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="@dimen/checkBoxEndPadding"
-                android:paddingLeft="@dimen/checkBoxStartPadding"
-                android:paddingRight="@dimen/checkBoxEndPadding"
-                android:paddingStart="@dimen/checkBoxStartPadding"
-                android:text="@string/whipped_cream"
-                android:textSize="@dimen/normalText" />
+                style="@style/CheckBoxStyle"
+                android:text="@string/whipped_cream" />
 
             <CheckBox
                 android:id="@+id/chocolate_check"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingEnd="@dimen/checkBoxEndPadding"
-                android:paddingLeft="@dimen/checkBoxStartPadding"
-                android:paddingRight="@dimen/checkBoxEndPadding"
-                android:paddingStart="@dimen/checkBoxStartPadding"
-                android:text="@string/chocolate"
-                android:textSize="@dimen/normalText" />
+                style="@style/CheckBoxStyle"
+                android:text="@string/chocolate" />
 
         </LinearLayout>
 
         <TextView
-            style="@style/heading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/generalMargin"
+            style="@style/HeaderTextStyle"
             android:text="@string/quantity_label" />
 
         <LinearLayout
@@ -70,14 +52,11 @@
 
             <Button
                 android:id="@+id/decrement_button"
-                android:layout_width="@dimen/buttonWidth"
-                android:layout_height="@dimen/buttonHeight"
-                android:layout_marginBottom="@dimen/generalMargin"
+                style="@style/IncrementDecrementButtonStyle"
                 android:layout_marginEnd="@dimen/generalMargin"
                 android:layout_marginLeft="@dimen/smallMargin"
                 android:layout_marginRight="@dimen/generalMargin"
                 android:layout_marginStart="@dimen/smallMargin"
-                android:layout_marginTop="@dimen/generalMargin"
                 android:text="@string/decrement_button" />
 
             <TextView
@@ -85,20 +64,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/smallMargin"
+                android:text="@string/quantity_value"
                 android:textColor="@color/primary_text"
-                android:textSize="@dimen/normalText"
-                android:text="@string/quantity_value"/>
+                android:textSize="@dimen/normalText" />
 
             <Button
                 android:id="@+id/increment_button"
-                android:layout_width="@dimen/buttonWidth"
-                android:layout_height="@dimen/buttonHeight"
-                android:layout_marginBottom="@dimen/generalMargin"
+                style="@style/IncrementDecrementButtonStyle"
                 android:layout_marginEnd="@dimen/smallMargin"
                 android:layout_marginLeft="@dimen/generalMargin"
                 android:layout_marginRight="@dimen/smallMargin"
                 android:layout_marginStart="@dimen/generalMargin"
-                android:layout_marginTop="@dimen/generalMargin"
                 android:text="@string/increment_button" />
 
         </LinearLayout>
