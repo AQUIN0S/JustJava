@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">Just Java</string>
+    <string name="chocolate">Chocolate</string>
+    <string name="decrement_button">-</string>
+    <string name="increment_button">+</string>
+    <string name="quantity_value">0</string>
+    <string name="gratitude">¡Gracias!</string>
+    <string name="name_hint">Nombre</string>
+    <string name="no">No</string>
+    <string name="yes">Sí</string>
+    <string name="order_button">Orden</string>
+    <string name="order_summary_chocolate">¿Añadir chocolate?\t</string>
+    <string name="order_summary_name">Nombre: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+    <string name="order_summary_price">Total: <xliff:g id="price">%s</xliff:g></string>
+    <string name="order_summary_quantity">Cantidad: <xliff:g id="quantity">%d</xliff:g></string>
+    <string name="order_summary_whipped_cream">¿Añadir crema batida?\t</string>
+    <string name="quantity_label">Cantidad</string>
+    <string name="toast_too_high">Demasiadas tazas de café!</string>
+    <string name="toast_too_low">No puede haber menos de 0 tazas de café!</string>
+    <string name="toppings_label">Coberturas</string>
+    <string name="whipped_cream">Crema batida</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="smallMargin">4dp</dimen>
+    <dimen name="generalMargin">8dp</dimen>
+    <dimen name="buttonHeight">48dp</dimen>
+    <dimen name="buttonWidth">48dp</dimen>
+    <dimen name="checkBoxStartPadding">24dp</dimen>
+    <dimen name="checkBoxEndPadding">24dp</dimen>
+    <dimen name="decButtonMargin">4dp</dimen>
+    <dimen name="incButtonMargin">4dp</dimen>
+    <dimen name="normalText">16sp</dimen>
+</resources>

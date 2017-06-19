@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.android.justjava.MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:focusableInTouchMode="true">
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/name_edit_text_view"
@@ -20,73 +20,95 @@
 
         <TextView
             style="@style/heading"
-            android:text="@string/toppings_label"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/generalMargin"
+            android:text="@string/toppings_label" />
 
         <LinearLayout
-            style="@style/viewDimens"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/generalMargin"
             android:orientation="vertical">
 
             <CheckBox
                 android:id="@+id/whipped_cream_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/checkBoxEndPadding"
+                android:paddingLeft="@dimen/checkBoxStartPadding"
+                android:paddingRight="@dimen/checkBoxEndPadding"
+                android:paddingStart="@dimen/checkBoxStartPadding"
                 android:text="@string/whipped_cream"
-                android:textSize="16sp"
-                android:paddingLeft="24dp"
-                android:paddingStart="24dp"
-                android:paddingRight="24dp"
-                android:paddingEnd="24dp"/>
+                android:textSize="@dimen/normalText" />
 
             <CheckBox
                 android:id="@+id/chocolate_check"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingEnd="@dimen/checkBoxEndPadding"
+                android:paddingLeft="@dimen/checkBoxStartPadding"
+                android:paddingRight="@dimen/checkBoxEndPadding"
+                android:paddingStart="@dimen/checkBoxStartPadding"
                 android:text="@string/chocolate"
-                android:textSize="16sp"
-                android:paddingLeft="24dp"
-                android:paddingStart="24dp"
-                android:paddingRight="24dp"
-                android:paddingEnd="24dp"/>
+                android:textSize="@dimen/normalText" />
 
         </LinearLayout>
 
         <TextView
-            android:text="@string/quantity_label"
-            style="@style/heading" />
+            style="@style/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/generalMargin"
+            android:text="@string/quantity_label" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/decrement_button"
-                android:text="@string/decrement_button"
-                style="@style/inc_dec_button_dimensions"
-                android:layout_marginLeft="4dp"
-                android:layout_marginStart="4dp" />
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/buttonHeight"
+                android:layout_marginBottom="@dimen/generalMargin"
+                android:layout_marginEnd="@dimen/generalMargin"
+                android:layout_marginLeft="@dimen/smallMargin"
+                android:layout_marginRight="@dimen/generalMargin"
+                android:layout_marginStart="@dimen/smallMargin"
+                android:layout_marginTop="@dimen/generalMargin"
+                android:text="@string/decrement_button" />
 
             <TextView
                 android:id="@+id/quantity_text_view"
-                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/smallMargin"
                 android:textColor="@color/primary_text"
-                style="@style/viewDimens"
-                android:layout_margin="4dp" />
+                android:textSize="@dimen/normalText"
+                android:text="@string/quantity_value"/>
 
             <Button
                 android:id="@+id/increment_button"
-                android:text="@string/increment_button"
-                style="@style/inc_dec_button_dimensions"
-                android:layout_marginRight="4dp"
-                android:layout_marginEnd="4dp" />
+                android:layout_width="@dimen/buttonWidth"
+                android:layout_height="@dimen/buttonHeight"
+                android:layout_marginBottom="@dimen/generalMargin"
+                android:layout_marginEnd="@dimen/smallMargin"
+                android:layout_marginLeft="@dimen/generalMargin"
+                android:layout_marginRight="@dimen/smallMargin"
+                android:layout_marginStart="@dimen/generalMargin"
+                android:layout_marginTop="@dimen/generalMargin"
+                android:text="@string/increment_button" />
 
         </LinearLayout>
 
         <Button
             android:id="@+id/order_button"
-            android:text="@string/order_button"
-            style="@style/viewDimens"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/generalMargin"
+            android:text="@string/order_button" />
 
     </LinearLayout>
 

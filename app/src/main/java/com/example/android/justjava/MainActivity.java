@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         boolean whippedCream = whippedCreamCheck.isChecked();
         boolean chocolate = chocolateCheck.isChecked();
         String name = nameEditTextView.getText().toString();
-        String message = createMessage(name, price, whippedCream, chocolate);
+        String message = createOrderSummary(name, price, whippedCream, chocolate);
 
         sendEmail(message);
 
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     public void increment() {
 
         if (quantityValue >= 100) {
-            Toast.makeText(this, "Too many cups of coffee!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_too_high), Toast.LENGTH_SHORT).show();
 
             return;
         }
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     public void decrement() {
 
         if (quantityValue <= 0) {
-            Toast.makeText(this, "Cannot have less than 0 cups of coffee!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.toast_too_low), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -124,24 +124,24 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private String createMessage(String name, double price, boolean whippedCream, boolean chocolate) {
+    private String createOrderSummary(String name, double price, boolean whippedCream, boolean chocolate) {
 
-        String message = "Name: " + name;
-        message += "\nAdd whipped cream? ";
+        String message = getString(R.string.order_summary_name, name);
+        message += "\n" + getString(R.string.order_summary_whipped_cream);
         if (whippedCream) {
-            message += "Yes";
+            message += getString(R.string.yes);
         } else {
-            message += "No";
+            message += getString(R.string.no);
         }
-        message += "\nAdd chocolate? ";
+        message += "\n" + getString(R.string.order_summary_chocolate);
         if (chocolate) {
-            message += "Yes";
+            message += getString(R.string.yes);
         } else {
-            message += "No";
+            message += getString(R.string.no);
         }
-        message += "\nQuantity: " + quantityValue;
-        message += "\nTotal: " + NumberFormat.getCurrencyInstance().format(price);
-        message += "\nThank you!";
+        message += "\n" + getString(R.string.order_summary_quantity, quantityValue);
+        message += "\n" + getString(R.string.order_summary_price, NumberFormat.getCurrencyInstance().format(price));
+        message += "\n" + getString(R.string.gratitude);
 
         return message;
 

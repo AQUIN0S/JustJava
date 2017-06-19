@@ -1,13 +1,64 @@
-<resources>
-    <string name="app_name">Just Java</string>
-    <string name="quantity_label">Quantity</string>
-    <string name="order_summary_label">Order Summary</string>
-    <string name="order_summary_text_view">Name:\nAdd whipped cream?\nAdd chocolate?\nQuantity: 0\nTotal: $0.00</string>
-    <string name="order_button">order</string>
-    <string name="increment_button">+</string>
-    <string name="decrement_button">-</string>
-    <string name="toppings_label">Toppings</string>
-    <string name="whipped_cream">Whipped cream</string>
-    <string name="chocolate">Chocolate</string>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!-- Text that acts as a hint in the EditText view, CHAR_LIMIT=20 -->
     <string name="name_hint">Name</string>
+
+    <!-- Name of the app [CHAR LIMIT=20] -->
+    <string name="app_name">Just Java</string>
+
+    <!-- Heading over the quantity value [CHAR LIMIT=20]  -->
+    <string name="quantity_label">Quantity</string>
+
+    <!-- Initial quantity value [CHAR LIMIT=20] -->
+    <string name="quantity_value">0</string>
+
+    <!-- Text in the order button [CHAR LIMIT=20] -->
+    <string name="order_button">Order</string>
+
+    <!-- Symbol to show increment button [CHAR LIMIT=20] -->
+    <string name="increment_button">+</string>
+
+    <!-- Symbol to show decrement button [CHAR LIMIT=20] -->
+    <string name="decrement_button">-</string>
+
+    <!-- Label over the toppings options [CHAR LIMIT=20] -->
+    <string name="toppings_label">Toppings</string>
+
+    <!-- Label for the whipped cream checkbox [CHAR LIMIT=20] -->
+    <string name="whipped_cream">Whipped cream</string>
+
+    <!-- Label for the chocolate checkbox [CHAR LIMIT=20] -->
+    <string name="chocolate">Chocolate</string>
+
+    <!-- Name for the order summary. It will be shown in the format "Name: Daniel", where Daniel is
+         a string given by the user. This won't be translated.[CHAR LIMIT=NONE] -->
+    <string name="order_summary_name">Name: <xliff:g id="name" example="Amy">%s</xliff:g></string>
+
+    <!-- Prompt to add whipped cream [CHAR LIMIT=40] -->
+    <string name="order_summary_whipped_cream">Add whipped cream?\t</string>
+
+    <!-- Prompt to add chocolate [CHAR LIMIT=40] -->
+    <string name="order_summary_chocolate">Add chocolate?\t</string>
+
+    <!-- Positive answer [CHAR LIMIT=20] -->
+    <string name="yes">Yes</string>
+
+    <!-- Negative answer [CHAR LIMIT=20] -->
+    <string name="no">No</string>
+
+    <!-- Show quantity [CHAR LIMIT=NONE] -->
+    <string name="order_summary_quantity">Quantity: <xliff:g id="quantity">%d</xliff:g></string>
+
+    <!-- Show total price [CHAR LIMIT=NONE] -->
+    <string name="order_summary_price">Total: <xliff:g id="price">%s</xliff:g></string>
+
+    <!-- Show gratitude [CHAR LIMIT=NONE] -->
+    <string name="gratitude">Thank you!</string>
+
+    <!-- Show gratitude [CHAR LIMIT=NONE] -->
+    <string name="toast_too_high">Too many cups of coffee!</string>
+
+    <!-- Show gratitude [CHAR LIMIT=NONE] -->
+    <string name="toast_too_low">Cannot have less than 0 cups of coffee!</string>
+
 </resources>
